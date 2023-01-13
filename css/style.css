@@ -56,19 +56,24 @@ img{
     transform-style: preserve-3d;
   }
 
-  .back-face {
+  .escondido {
     transform: rotateY(180deg);
   }
 
-  .card:hover .back-face {
+  .card .back-face {
     transform: rotateY(0deg);
   }
 
-  .card:hover .front-face {
+  .card .front-face {
     transform: rotateY(-180deg);
   }
 
-@media (only screen and (hover: none) and (pointer: coarse)) or (max-width:335px) {
+  .correto{
+    background-color: red;
+  }
+
+/*Responsividade*/
+@media (max-width:335px) {
     body,main{
         width:100%
     }
