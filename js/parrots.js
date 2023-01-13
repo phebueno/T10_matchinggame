@@ -1,3 +1,5 @@
+//Relógio
+
 // Função comparadora para misturar o baralho
 function comparador() { 
 	return Math.random() - 0.5; 
@@ -13,12 +15,19 @@ function selecionaCarta(carta){
     const carta_virada = carta.parentNode.querySelector(':nth-child(2)'); //passa pelo elemento pai pra identificar o irmão da carta
     carta_virada.classList.add('back-face');
     if (img_carta==''){
-        img_carta = carta_virada.querySelector('img');
+        img_carta = carta_virada.querySelector('img');        
     }
-    else{
+    else{        
+        //contador de jogadas:
+        jogadas++;
         //Só entra aqui na segunda escolha de carta
         if (img_carta.src==carta_virada.querySelector('img').src){
             img_carta=''; //Acertou!
+            let total_de_cartas = document.querySelectorAll('.front-face');
+            if (total_de_cartas.length==qtd_cartas) {
+                // Fim de jogo
+                setTimeout(alert,500,`Você ganhou em ${jogadas} jogadas!`);//Tempo de girar a carta
+            }
         }
         else{
             //Desabilita os cliques
@@ -31,16 +40,15 @@ function selecionaCarta(carta){
 function resetar(nova_carta){            
     img_carta.parentNode.classList.remove('back-face');
     nova_carta.parentNode.classList.remove('back-face');
-    img_carta.parentNode.classList.add('escondido');
-    nova_carta.parentNode.classList.add('escondido');
     img_carta.parentNode.parentNode.querySelector(':nth-child(1)').classList.remove('front-face');
     nova_carta.parentNode.parentNode.querySelector(':nth-child(1)').classList.remove('front-face');
-    img_carta='';
     //Reabilita os cliques
-    document.removeEventListener("click", handler, true); 
+    document.removeEventListener("click", handler, true);    
+    img_carta='';
 }
 
 //Montagem do site e variáveis globais
+let jogadas = 0;
 let img_carta = '';
 let check = false;
 let qtd_cartas = 0;
