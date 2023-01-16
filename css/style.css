@@ -20,6 +20,20 @@ header{
     color: #75B79E;
 }
 
+.relogio{
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: -0.004em;
+  position:fixed;
+  top:0;
+  right:0;
+  color: #86BD8D;
+  padding:16px;
+}
+
 main{
     width:872px;
     margin: 0 auto;
@@ -86,5 +100,9 @@ img{
         font-size: 36px;
         line-height: 42px;
         text-align: center;
+    }
+    .relogio{
+      font-size: 25px;
+      padding:5px;
     }
 }
