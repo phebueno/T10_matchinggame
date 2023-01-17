@@ -81,13 +81,8 @@ img{
   .card .front-face {
     transform: rotateY(-180deg);
   }
-
-  .correto{
-    background-color: red;
-  }
-
-/*Responsividade*/
-@media (max-width:335px) {
+/*Responsividade para mobile e telas abaixo do limite*/
+@media only screen and (hover: none) and (pointer: coarse), (max-width:335px) { 
     body,main{
         width:100%
     }

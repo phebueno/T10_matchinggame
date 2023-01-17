@@ -65,9 +65,14 @@ function resetar(nova_carta){
     nova_carta.parentNode.classList.remove('back-face');
     img_carta.parentNode.parentNode.querySelector(':nth-child(1)').classList.remove('front-face');
     nova_carta.parentNode.parentNode.querySelector(':nth-child(1)').classList.remove('front-face');
-    //Reabilita os cliques
-    document.removeEventListener("click", handler, true);    
+    //Reabilita os cliques    
+    setTimeout(destravar,700,"click");    
     img_carta='';
+}
+
+//Função para destravar as cartas. Funciona com o timeout para não dar bug na seleção de cartas!
+function destravar(clique){
+    document.removeEventListener(clique, handler, true);
 }
 
 //Montagem do site e variáveis globais
